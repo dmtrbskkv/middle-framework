@@ -1,0 +1,20 @@
+@import "modules/hero-block";
+@import "modules/images-block";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1200px;
+  max-width: 100%;
+}
+
+.card {
+  padding: 20px;
+  box-sizing: border-box;
+  border: solid #e3e3e3ee 1px;
+}

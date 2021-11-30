@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "watch": "node-sass --watch resources/scss -o resources/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}

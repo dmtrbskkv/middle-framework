@@ -1,0 +1,16 @@
+.images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+
+  .card {
+    padding: 20px;
+    box-sizing: border-box;
+    border: solid #e3e3e3ee 1px;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
