@@ -9,10 +9,24 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
+/**
+ * Facade for Twig Template Engine
+ */
 class TwigFacade implements TemplateFacade, TemplateEngine
 {
+    /**
+     * @var array Static data, like global data object
+     */
     private static array $staticData = [];
 
+    /**
+     * Return HTML code of rendered template
+     *
+     * @param string $file
+     * @param array  $data
+     *
+     * @return string|null
+     */
     public function view(string $file, array $data): ?string
     {
         $driver = new Twig();
@@ -28,17 +42,36 @@ class TwigFacade implements TemplateFacade, TemplateEngine
         }
     }
 
-    public static function appendStaticData(array $data)
+    /**
+     * Add data to static data array
+     *
+     * @param array $data
+     *
+     * @return void
+     */
+    public static function appendStaticData(array $data): void
     {
         self::$staticData = array_merge(self::$staticData, $data);
     }
 
+    /**
+     * Get Static data array
+     *
+     * @return array
+     */
     public static function getStaticData(): array
     {
         return self::$staticData;
     }
 
-    private function getFilename($file)
+    /**
+     * Get filename extensions
+     *
+     * @param string $file
+     *
+     * @return string
+     */
+    private function getFilename(string $file): string
     {
         $config = ConfigLoader::getConfig(ConfigLoader::CONFIG_FILE_TWIG);
 

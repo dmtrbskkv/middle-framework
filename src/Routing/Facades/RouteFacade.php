@@ -2,23 +2,51 @@
 
 namespace Source\Routing\Facades;
 
+use Closure;
 use Source\Routing\Route;
 
+/**
+ * Facade for Route
+ */
 class RouteFacade
 {
-    public static function GET($path, $callback): Route
+    /**
+     * Add route for GET method
+     *
+     * @param string        $path     url
+     * @param Closure|array $callback Closure or Class(Controller) with method
+     *
+     * @return Route
+     */
+    public static function GET(string $path, $callback): Route
     {
         return new Route($path, $callback, 'GET');
     }
 
-    public static function POST($path, $callback): Route
+    /**
+     * Add route for POST method
+     *
+     * @param string        $path     url
+     * @param Closure|array $callback Closure or Class(Controller) with method
+     *
+     * @return Route
+     */
+    public static function POST(string $path, $callback): Route
     {
         return new Route($path, $callback, 'POST');
     }
 
-    public static function REDIRECT($from, $to): Route
+    /**
+     * Add redirect route
+     *
+     * @param string $from redirect from
+     * @param string $to   redirect to
+     *
+     * @return Route
+     */
+    public static function REDIRECT(string $from, string $to): Route
     {
-        return new Route($from, function () use ($to){
+        return new Route($from, function () use ($to) {
             header('Location: ' . $to);
         });
     }

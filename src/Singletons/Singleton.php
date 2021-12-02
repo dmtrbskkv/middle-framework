@@ -4,7 +4,7 @@ namespace Source\Singletons;
 
 abstract class Singleton
 {
-    private static $instances = [];
+    private static array $instances = [];
 
     protected function __construct()
     {

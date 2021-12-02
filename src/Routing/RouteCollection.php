@@ -6,9 +6,14 @@ use ArrayIterator;
 use \IteratorAggregate;
 use Source\Routing\Singletons\RouteCollectionSingleton;
 
+/**
+ * Route Collection for "foreach"
+ */
 class RouteCollection implements IteratorAggregate
 {
     /**
+     * Iterator for "foreach"
+     *
      * @return ArrayIterator<string, Route>
      * @see getRoutes()
      */
@@ -17,6 +22,11 @@ class RouteCollection implements IteratorAggregate
         return new ArrayIterator($this->getRoutes());
     }
 
+    /**
+     * Get list of routes from RouteCollectionSingleton
+     *
+     * @return array<Route>
+     */
     private function getRoutes(): array
     {
         /** @var RouteCollectionSingleton $singleton */

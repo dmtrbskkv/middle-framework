@@ -4,9 +4,17 @@ namespace Source;
 
 use Source\Routing\RouteCompiler;
 
+/**
+ * Base class for Application
+ */
 class Application
 {
-    public function run($output = true)
+    /**
+     * Run App
+     *
+     * @param bool $output Show HTML
+     */
+    public function run(bool $output = true)
     {
         $app = null;
         try {

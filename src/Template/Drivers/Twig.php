@@ -3,19 +3,28 @@
 namespace Source\Template\Drivers;
 
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
 
-class Twig implements TemplateDriver
+/**
+ * Twig Template Engine Driver
+ */
+class Twig extends CommonDriver implements Driver
 {
 
-    private static $configTwig;
-    private $file = null;
-    private array $data = [];
+    /**
+     * @var array config from config/twig.php file
+     */
+    private static array $configTwig;
 
     /**
-     * @throws \Twig\Error\SyntaxError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\LoaderError
+     * Render Twig Template
+     *
+     * @throws SyntaxError
+     * @throws RuntimeError
+     * @throws LoaderError
      */
     public function render(): string
     {
@@ -29,33 +38,23 @@ class Twig implements TemplateDriver
         return $twig->render($view, $data);
     }
 
-    public function setFile($file)
-    {
-        $this->file = $file;
-    }
 
-    public function getFile()
-    {
-        return $this->file;
-    }
-
-    public function setData(array $data)
-    {
-        $this->data = $data;
-    }
-
-    public function getData(): array
-    {
-        return $this->data;
-    }
-
-
-    public function getConfig()
+    /**
+     * Get twig Config
+     *
+     * @return array
+     */
+    public function getConfig(): array
     {
         return self::$configTwig;
     }
 
-    public function setConfig($config)
+    /**
+     * Set twig Config
+     *
+     * @param array $config
+     */
+    public function setConfig(array $config)
     {
         self::$configTwig = $config;
     }
