@@ -1,6 +1,6 @@
 <?php
 
-use Source\Application;
+use Source\Application\ConfigLoader;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -14,7 +14,7 @@ $twigConfig = function () {
 
 function view($filename, $data = [])
 {
-    $config = Application::getConfig('twig');
+    $config = ConfigLoader::getConfig(ConfigLoader::CONFIG_FILE_TWIG);
 
     $loader = new FilesystemLoader($config['views']);
     $twig = new Environment($loader, []);

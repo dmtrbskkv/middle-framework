@@ -2,7 +2,7 @@
 
 namespace Source\Singletons;
 
-class Singleton
+abstract class Singleton
 {
     private static $instances = [];
 

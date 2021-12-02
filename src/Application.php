@@ -21,14 +21,4 @@ class Application
             echo $app;
         }
     }
-
-    public static function getConfig($configName): array
-    {
-        $filepath = __DIR__ . '/../config/' . $configName . '.php';
-        if (file_exists($filepath)) {
-            return require $filepath;
-        }
-
-        return [];
-    }
 }
