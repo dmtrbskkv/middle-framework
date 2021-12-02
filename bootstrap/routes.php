@@ -1,10 +1,10 @@
 <?php
 
-use Source\Routing\RouteCollection;
+use Source\Routing\Facades\RouteCollectionFacade;
 use Source\Routing\RouteCompiler;
 
 
-$routes = new RouteCollection();
+$routes = new RouteCollectionFacade();
 require_once __DIR__ . '/../routes/web.php';
-RouteCompiler::prepare($routes);
+RouteCompiler::prepare($routes->getCollection());
 

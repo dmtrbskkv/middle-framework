@@ -1,15 +1,14 @@
 <?php
 
-use App\Controllers\HomeController;
-use Source\Routing\Route;
-use Source\Routing\RouteCollection;
+use Source\Routing\Facades\RouteCollectionFacade as RouteCollection;
+use Source\Routing\Facades\RouteFacade as Route;
 
-/**
- * @var RouteCollection $routes
- */
-
-
+/** @var RouteCollection $routes */
 $routes->group('front', [
-    Route::GET('/', [HomeController::class, 'home'])
-        ->setMiddlewares([]),
+    Route::GET('/', [App\Controllers\HomeController::class, 'home'])->setMiddlewares([]),
+]);
+
+$routes->group('dashboard', [
+    Route::REDIRECT('/dashboard', '/dashboard/login'),
+    Route::GET('/dashboard/login', [\App\Controllers\DashboardController::class, 'login'])->setMiddlewares([]),
 ]);

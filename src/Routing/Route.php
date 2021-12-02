@@ -10,20 +10,10 @@ class Route implements MiddlewaresStorage
     private $callback;
     private $middlewares;
 
-    private function __construct($path, $callback, $method = 'GET')
+    public function __construct($path, $callback, $method = 'GET')
     {
         $this->setPath($path);
         $this->setCallback($callback);
-    }
-
-    public static function GET($path, $callback): Route
-    {
-        return new self($path, $callback, 'GET');
-    }
-
-    public static function POST($path, $callback): Route
-    {
-        return new self($path, $callback, 'POST');
     }
 
     public function setPath($path)

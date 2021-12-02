@@ -29,7 +29,7 @@ class RouteCompiler
         $callback = $route->getCallback();
         $request = Request::prepare();
 
-        $middlewares = $route->getMiddlewares();
+        $middlewares = $route->getMiddlewares() ?? [];
         for ($i = 0; $i < count($middlewares); $i++){
             $middleware = new $middlewares[$i];
             $next = isset($middlewares[($i + 1)]) ? new $middlewares[($i + 1)] : new Middleware;
