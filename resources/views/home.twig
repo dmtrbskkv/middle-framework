@@ -2,11 +2,26 @@
 
 {% block title %}Home{% endblock %}
 {% block content %}
-    <div class="container mx-auto">
-        <div class="my-64 text-center">
-            <h1 class="text-7xl text-gray-800">Middle Framework</h1>
-            <h1 class="text-base mt-4 text-gray-800"><b>Current Location:</b> Home Page</h1>
-            <h1 class="text-base mt-4 text-gray-800"><b>Controller:</b> Home Page</h1>
+    <div class="container mx-auto  text-gray-800">
+        <div class="my-56 text-center">
+            <h1 class="text-7xl">Middle Framework</h1>
+            <p class="text-base mt-4"><b>Current Location:</b> Home Page</p>
+
+            <div class="text-left mt-48">
+                <div>
+                    <p class="text-base mt-4 text-gray-800"><b>Middleware Data:</b></p>
+                    <div class="bg-yellow-50 px-10 py-8 mt-4">
+                        <code class="whitespace-pre">{{ middlewareData|json_encode(constant('JSON_PRETTY_PRINT')  b-or constant('JSON_UNESCAPED_SLASHES')) }}</code>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-base mt-8 text-gray-800"><b>Template Engine:</b></p>
+                    <div class="bg-yellow-50 px-10 py-8 mt-4">
+                        <code class="whitespace-pre">{{ templateEngine|json_encode(constant('JSON_PRETTY_PRINT')  b-or constant('JSON_UNESCAPED_SLASHES')) }}</code>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 {% endblock %}
