@@ -5,7 +5,9 @@ use Source\Routing\Facades\RouteFacade as Route;
 
 /** @var RouteCollection $routes */
 $routes->group('front', [
-    Route::GET('/', [App\Controllers\HomeController::class, 'home'])->setMiddlewares([]),
+    Route::GET('/', [App\Controllers\HomeController::class, 'home'])->setMiddlewares(
+        [App\Middleware\MiddlewareAddGlobalVariableToTwig::class]
+    ),
 ]);
 
 $routes->group('dashboard', [

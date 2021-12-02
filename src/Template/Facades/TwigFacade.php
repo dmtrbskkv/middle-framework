@@ -5,11 +5,9 @@ namespace Source\Template\Facades;
 use Source\Application\ConfigLoader;
 use Source\Template\Drivers\Twig;
 use Source\Template\Factory\TemplateEngine;
-use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
-use Twig\Loader\FilesystemLoader;
 
 class TwigFacade implements TemplateFacade, TemplateEngine
 {
@@ -30,7 +28,7 @@ class TwigFacade implements TemplateFacade, TemplateEngine
         }
     }
 
-    public static function appendStaticData($data)
+    public static function appendStaticData(array $data)
     {
         self::$staticData = array_merge(self::$staticData, $data);
     }
