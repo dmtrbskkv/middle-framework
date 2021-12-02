@@ -8,7 +8,7 @@ use Source\Singletons\Singleton;
 
 class RouteScanner extends Singleton implements Scanner
 {
-    private $routes = [];
+    private array $routes = [];
 
     public function scan(): RouteScanner
     {
