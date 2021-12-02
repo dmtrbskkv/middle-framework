@@ -9,4 +9,7 @@ use Source\Routing\RouteCollection;
  */
 
 
-$routes->add(Route::GET('/', [HomeController::class, 'home']));
+$routes->group('front', [
+    Route::GET('/', [HomeController::class, 'home'])
+        ->setMiddlewares([]),
+]);

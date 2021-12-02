@@ -3,7 +3,8 @@
 namespace Source\Routing;
 
 use Exception;
-use Source\Request;
+use Source\Middlewares\Middleware;
+use Source\Request\Request;
 use Source\Routing\Exceptions\RouteMethodUnavailable;
 use Source\Routing\Exceptions\RouteNotFound;
 
@@ -27,6 +28,18 @@ class RouteCompiler
     {
         $callback = $route->getCallback();
         $request = Request::prepare();
+
+        $middlewares = $route->getMiddlewares();
+        for ($i = 0; $i < count($middlewares); $i++){
+            $middleware = new $middlewares[$i];
+            $next = isset($middlewares[($i + 1)]) ? new $middlewares[($i + 1)] : new Middleware;
+
+            if(!$request->getMiddleware()){
+                $request->setMiddleware($middleware);
+            }
+
+            $request->execMiddleware($next);
+        }
 
         if (is_array($callback) && count($callback) === 2) {
             $class = new $callback[0];
