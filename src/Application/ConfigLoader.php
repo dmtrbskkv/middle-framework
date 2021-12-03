@@ -36,6 +36,11 @@ class ConfigLoader
     const CONFIG_FILE_TERMINAL = 'terminal';
 
     /**
+     * File with console configuration
+     */
+    const CONFIG_FILE_MIGRATION = 'migrations';
+
+    /**
      * Get data array from needed config file
      *
      * @param string $configName filename without .php
@@ -44,11 +49,16 @@ class ConfigLoader
      */
     public static function getConfig(string $configName): array
     {
-        $filepath = __DIR__ . '/../../config/' . $configName . '.php';
+        $filepath = self::getFilePath($configName);
         if (file_exists($filepath)) {
             return require $filepath;
         }
 
         return [];
+    }
+
+    public static function getFilePath(string $configName): string
+    {
+        return realpath(__DIR__ . '/../../config') . '/' . $configName . '.php';
     }
 }

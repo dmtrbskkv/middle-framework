@@ -11,7 +11,7 @@ use Source\Terminal\Exceptions\NotRunningInTheTerminal;
 class Terminal
 {
     private array $config = [];
-    private array $commands = [];
+    private static array $commands = [];
 
     public function __construct()
     {
@@ -37,21 +37,21 @@ class Terminal
         $commandKey = $argv[1];
         array_shift($argv);
         array_shift($argv);
-        if (isset($commands[$commandKey])){
-            echo shell_exec($commands[$commandKey].' '.implode(' ', $argv));
-        }else{
+        if (isset($commands[$commandKey])) {
+            echo shell_exec($commands[$commandKey] . ' ' . implode(' ', $argv));
+        } else {
             throw new CommandNotFound();
         }
     }
 
-    private function getCommands(): array
+    public function getCommands(): array
     {
-        return $this->commands;
+        return self::$commands;
     }
 
-    private function setCommands($commands): Terminal
+    public function setCommands($commands): Terminal
     {
-        $this->commands = $commands;
+        self::$commands = $commands;
         return $this;
     }
 
