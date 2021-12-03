@@ -7,7 +7,7 @@ $twigConfig = function () {
 };
 
 
-function view($file, $data = [])
+function view($file, $data = []): ?string
 {
     $templateEngine = TemplateEngineFactory::getTemplateEngine();
     return $templateEngine->view($file, $data);

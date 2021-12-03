@@ -6,5 +6,6 @@ class DashboardController implements Controller
 {
     public function login()
     {
+        return view('dashboard/login');
     }
 }
