@@ -31,6 +31,11 @@ class ConfigLoader
     const CONFIG_FILE_DB = 'db';
 
     /**
+     * File with console configuration
+     */
+    const CONFIG_FILE_TERMINAL = 'terminal';
+
+    /**
      * Get data array from needed config file
      *
      * @param string $configName filename without .php

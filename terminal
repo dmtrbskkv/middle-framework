@@ -1,0 +1,7 @@
+<?php
+require_once __DIR__.'/vendor/autoload.php';
+
+use Source\Terminal\Terminal;
+
+$terminal = new Terminal();
+$terminal->run();
