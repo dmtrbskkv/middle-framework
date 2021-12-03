@@ -21,6 +21,16 @@ class ConfigLoader
     const CONFIG_FILE_TEMPLATE_ENGINE = 'template_engine';
 
     /**
+     * File with app common configs
+     */
+    const CONFIG_FILE_APP = 'app';
+
+    /**
+     * File with db configuration
+     */
+    const CONFIG_FILE_DB = 'db';
+
+    /**
      * Get data array from needed config file
      *
      * @param string $configName filename without .php
