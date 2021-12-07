@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Source\Database\Model;
+use Morce\Database\Model;
 
 /**
  * @Entity

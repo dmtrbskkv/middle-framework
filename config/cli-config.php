@@ -6,7 +6,7 @@ use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
 use Doctrine\Migrations\Configuration\Migration\PhpFile;
 use Doctrine\Migrations\DependencyFactory;
 use Doctrine\ORM\EntityManager;
-use Source\Application\ConfigLoader;
+use Morce\Application\ConfigLoader;
 
 /** @var EntityManager $entityManager */
 //return ConsoleRunner::createHelperSet($entityManager);

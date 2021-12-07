@@ -1,9 +1,9 @@
 <?php
 
-use Source\Application\ConfigLoader;
-use Source\Routing\Facades\RouteCollectionFacade;
-use Source\Routing\RouteCompiler;
-use Source\Routing\RouteScanner;
+use Morce\Application\ConfigLoader;
+use Morce\Routing\Facades\RouteCollectionFacade;
+use Morce\Routing\RouteCompiler;
+use Morce\Routing\RouteScanner;
 
 $directoriesConfig = ConfigLoader::getConfig(ConfigLoader::CONFIG_FILE_DIRECTORIES);
 

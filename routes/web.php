@@ -1,7 +1,7 @@
 <?php
 
-use Source\Routing\Facades\RouteCollectionFacade as RouteCollection;
-use Source\Routing\Facades\RouteFacade as Route;
+use Morce\Routing\Facades\RouteCollectionFacade as RouteCollection;
+use Morce\Routing\Facades\RouteFacade as Route;
 
 /** @var RouteCollection $routes */
 $routes->group('front', [

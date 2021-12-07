@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__.'/vendor/autoload.php';
 
-use Source\Terminal\Terminal;
+use Morce\Terminal\Terminal;
 
 $terminal = new Terminal();
 try {
     $terminal->run();
-} catch (\Source\Terminal\Exceptions\CommandNotFound $e) {
+} catch (\Morce\Terminal\Exceptions\CommandNotFound $e) {
     echo "Available Commands:\n";
     echo implode("\n", array_keys($terminal->getCommands()))."\n";
-} catch (\Source\Terminal\Exceptions\NotRunningInTheTerminal $e) {
+} catch (\Morce\Terminal\Exceptions\NotRunningInTheTerminal $e) {
 }
 

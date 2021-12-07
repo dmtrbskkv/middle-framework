@@ -1,12 +1,9 @@
 <?php
 
-use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
-use Doctrine\Migrations\Configuration\Migration\PhpFile;
-use Doctrine\Migrations\DependencyFactory;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use Source\Application;
-use Source\Application\ConfigLoader;
+use Morce\Application;
+use Morce\Application\ConfigLoader;
 use Doctrine\ORM\Mapping\AnsiQuoteStrategy;
 
 
