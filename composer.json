@@ -1,4 +1,9 @@
 {
+  "name": "dmtrbskkv/morce",
+  "description": "Morce Framework",
+  "keywords": ["framework", "morce"],
+  "license": "MIT",
+  "type": "framework",
   "require": {
     "twig/twig": "^3.0",
     "doctrine/orm": "*",
